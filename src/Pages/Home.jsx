@@ -4,12 +4,12 @@ import styles from "../styles/Home.module.css";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import Card from "../Components/Card";
+import { products } from "../Data/Products";
 import Button from "../Components/Button";
 import SpecialCollection from "../Sections/SpecialCollection";
 import About from "../Sections/About";
 import Testimonials from "../Sections/Testimonials";
 import Shops from "../Sections/Shops";
-import Footer from "../Components/Footer";
 
 const slides = [
   { id: 1, type: "video", src: "/images/main.mp4" },
@@ -117,7 +117,7 @@ const Home = () => {
       <div data-aos="fade-up" className={styles.productSection}>
         <h2>Our Products</h2>
         <div className={styles.decorLine}></div>
-        <Card />
+        <Card products={products} limit={8}/>
         <Button />
       </div>
 
@@ -147,10 +147,6 @@ const Home = () => {
             <Shops />
           </div>
           
-              {/* FOOOTERRR  */}
-          <div>
-            <Footer />
-          </div>
     </>
   );
 };

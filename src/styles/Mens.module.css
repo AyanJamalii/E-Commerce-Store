@@ -1,0 +1,32 @@
+.menSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.Text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.Text h2 {
+  color: #7D340A;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.decorLine {
+  width: 100%;
+  max-width: 200px;
+  height: 5px;
+  background: #0000004f;
+  margin: 0 auto;
+  border-radius: 50px;
+}

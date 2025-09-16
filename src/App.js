@@ -4,7 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Navbar from "./Components/Navbar.jsx";
-// import Footer from "./components/Footer";
+import Footer from "./Components/Footer";
 import Home from "./Pages/Home.jsx";
 import Men from "./Pages/Men";
 import Women from "./Pages/Women";
@@ -30,7 +30,7 @@ function App() {
         <Route path="/women" element={<Women />} />
         <Route path="/junior" element={<Junior />} />
       </Routes>
-      {/* <Footer /> */}
+      <Footer />
     </Router>
     </CartProvider>
   );

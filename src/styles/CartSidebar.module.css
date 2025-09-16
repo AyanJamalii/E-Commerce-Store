@@ -20,7 +20,7 @@
 .sidebar {
   position: fixed;
   top: -50px;
-  right: -34px;            /* your preferred exact alignment */
+  right: -354px;            /* your preferred exact alignment */
   width: 320px;
   height: 100vh;
   background: #fff;
