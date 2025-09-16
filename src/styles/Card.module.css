@@ -1,0 +1,227 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* always 4 per row */
+  gap: 25px;
+  padding: 20px;
+}
+
+.card {
+  width: 380px;
+  height: 500px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease;
+  margin: auto;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 32px 0px rgba(125, 52, 10, 0.35);
+  transition: all 0.3s ease; 
+}
+
+.cardImg {
+  width: 100%;
+  height: 80%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f8f8;
+  position: relative;
+}
+
+.cardImg img {
+  width: 379px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardBody {
+  padding: 10px;
+  margin-top: -20px;
+  flex: 1;
+}
+
+.cardBody h6 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.bottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -10px;
+}
+
+.bottomRow p{
+  font-weight: 600;
+}
+
+.colors {
+  display: flex;
+  gap: 6px;
+}
+
+.colors span {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.addBtn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background 0.2s ease;
+}
+
+.addBtn:hover {
+  background: #f1f1f1;
+}
+
+/* RESPONSIVE DESIGN FOR MOBILE AND TABLET */
+
+/* Tablet (768px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 15px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 320px;
+    height: 420px;
+  }
+
+  .cardImg img {
+    width: 100%;
+  }
+
+  .cardBody h6 {
+    font-size: 15px;
+  }
+
+  .colors span {
+    width: 18px;
+    height: 18px;
+  }
+
+  .addBtn {
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 15px;
+    justify-items: center;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 350px;
+    height: 450px;
+  }
+
+  .cardImg img {
+    width: 100%;
+  }
+
+  .cardBody {
+    padding: 15px;
+    margin-top: -15px;
+  }
+
+  .cardBody h6 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .bottomRow {
+    margin-top: -5px;
+  }
+
+  .bottomRow p {
+    font-size: 16px;
+  }
+
+  .colors {
+    gap: 8px;
+  }
+
+  .colors span {
+    width: 22px;
+    height: 22px;
+  }
+
+  .addBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 24px;
+    bottom: 15px;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .grid {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .card {
+   width: 129%;
+        max-width: 347px;
+        height: 645px;
+  }
+
+  .cardBody {
+    padding: 12px;
+  }
+
+  .cardBody h6 {
+    font-size: 15px;
+  }
+
+  .bottomRow p {
+    font-size: 15px;
+  }
+
+  .colors span {
+    width: 20px;
+    height: 20px;
+  }
+
+  .addBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+  }
+}

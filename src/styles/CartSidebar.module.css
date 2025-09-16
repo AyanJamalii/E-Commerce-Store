@@ -1,0 +1,404 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 49;
+}
+.overlay.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Sidebar - closed by translateX(100%) so it's completely off-screen to the right */
+.sidebar {
+  position: fixed;
+  top: -50px;
+  right: -34px;            /* your preferred exact alignment */
+  width: 320px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.2);
+  transform: translateX(100%);   /* hidden offscreen */
+  transition: transform 0.3s ease; /* match JS timeout */
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Show it by cancelling the translate */
+.sidebar.open {
+  transform: translateX(0); /* slides into the exact right position you set */
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Items */
+.items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.empty {
+  text-align: center;
+  color: #666;
+  margin-top: 40px;
+  font-size: 16px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+}
+.item h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+}
+.quantity button {
+  padding: 2px 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+}
+.quantity span {
+  margin: 0 8px;
+}
+.itemRight {
+  text-align: right;
+}
+.remove {
+  margin-top: 4px;
+  font-size: 12px;
+  color: red;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  padding: 16px;
+  border-top: 1px solid #eee;
+}
+.total {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+.checkoutBtn {
+  width: 100%;
+  padding: 10px;
+  background: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 4px;
+}
+.itemImg{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* RESPONSIVE DESIGN FOR MOBILE DEVICES */
+
+/* Tablet (768px - 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .sidebar {
+    width: 300px;
+    right: -20px;
+    top: -30px;
+  }
+  
+  .header h2 {
+    font-size: 18px;
+  }
+  
+  .item h3 {
+    font-size: 15px;
+  }
+  
+  .itemImg {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Mobile (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: 280px;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    border-radius: 0;
+  }
+  
+  .header {
+    padding: 12px 16px;
+    background: #f8f8f8;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .header h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+  
+  .closeBtn {
+    font-size: 28px;
+    padding: 5px;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .closeBtn:hover {
+    background: #e0e0e0;
+  }
+  
+  .items {
+    padding: 12px;
+  }
+  
+  .item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .item h3 {
+    font-size: 15px;
+    margin: 4px 0;
+  }
+  
+  .item p {
+    font-size: 14px;
+    color: #666;
+    margin: 2px 0;
+  }
+  
+  .itemImg {
+    width: 55px;
+    height: 55px;
+    border-radius: 4px;
+  }
+  
+  .quantity {
+    margin-top: 8px;
+  }
+  
+  .quantity button {
+    padding: 4px 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    min-width: 30px;
+    height: 30px;
+  }
+  
+  .quantity button:active {
+    background: #f0f0f0;
+  }
+  
+  .quantity span {
+    margin: 0 10px;
+    font-weight: 500;
+    min-width: 20px;
+    text-align: center;
+  }
+  
+  .itemRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+  
+  .itemRight span {
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  .remove {
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    background: #ffe6e6;
+    color: #d32f2f;
+  }
+  
+  .remove:hover {
+    background: #ffcdd2;
+  }
+  
+  .footer {
+    padding: 16px;
+    background: #f8f8f8;
+    border-top: 2px solid #eee;
+  }
+  
+  .total {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+  
+  .checkoutBtn {
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
+  
+  .checkoutBtn:active {
+    background: #333;
+  }
+  
+  .empty {
+    margin-top: 60px;
+    font-size: 16px;
+    color: #999;
+  }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+  
+  .header {
+    padding: 10px 16px;
+  }
+  
+  .header h2 {
+    font-size: 17px;
+  }
+  
+  .closeBtn {
+    font-size: 26px;
+    width: 32px;
+    height: 32px;
+  }
+  
+  .items {
+    padding: 10px;
+  }
+  
+  .item {
+    padding: 12px 0;
+  }
+  
+  .item h3 {
+    font-size: 14px;
+  }
+  
+  .item p {
+    font-size: 13px;
+  }
+  
+  .itemImg {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .quantity button {
+    padding: 3px 8px;
+    font-size: 14px;
+    min-width: 28px;
+    height: 28px;
+  }
+  
+  .itemRight span {
+    font-size: 15px;
+  }
+  
+  .remove {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .footer {
+    padding: 14px 16px;
+  }
+  
+  .total {
+    font-size: 17px;
+  }
+  
+  .checkoutBtn {
+    padding: 12px;
+    font-size: 15px;
+  }
+  
+  .empty {
+    font-size: 15px;
+    margin-top: 50px;
+  }
+}
+
+/* Very Small Mobile (max-width: 360px) */
+@media screen and (max-width: 360px) {
+  .header h2 {
+    font-size: 16px;
+  }
+  
+  .closeBtn {
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .item h3 {
+    font-size: 13px;
+  }
+  
+  .itemImg {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .quantity button {
+    min-width: 26px;
+    height: 26px;
+    font-size: 13px;
+  }
+  
+  .quantity span {
+    margin: 0 8px;
+    font-size: 14px;
+  }
+}

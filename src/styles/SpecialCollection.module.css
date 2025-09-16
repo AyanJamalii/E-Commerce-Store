@@ -1,0 +1,166 @@
+.specialCollection {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 100px;
+  gap: 150px;
+}
+
+.textSeciton {
+  margin-top: 100px;
+}
+.textSeciton h3 {
+  color: #A36C2A;
+  letter-spacing: 5px;
+  font-weight: 500;
+}
+.textSeciton h2 {
+  color: #654B1C;
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 4px;
+}
+.textSeciton p {
+  font-size: 19px;
+  color: #6D6767;
+}
+
+.bottomRow {
+  display: flex;
+  flex-direction: row;
+  gap: 405px;
+  width: 470px;
+}
+.Color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #684d38;
+}
+.bottomRow span {
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.SpecialImg {
+  width: 500px;
+  height: 500px;
+  background: #575757;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.productImage {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.addcartBtnSec {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+.speacialBtn {
+  width: 400px;
+  height: 60px;
+  border: none;
+  border-radius: 20px;
+  background: #BC5301;
+  color: #FFF4C4;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.speacialBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 32px 0px rgba(125, 52, 10, 0.35);
+  transition: all 0.3s ease;
+}
+
+/* ✅ Responsive Styling */
+@media (max-width: 1024px) {
+  .specialCollection {
+    gap: 80px;
+  }
+
+  .SpecialImg,
+  .productImage {
+    width: 400px;
+    height: 400px;
+  }
+
+  .speacialBtn {
+    width: 300px;
+  }
+
+  .bottomRow {
+    gap: 200px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .specialCollection {
+    flex-direction: column-reverse; /* ✅ flip order */
+    align-items: center;
+    gap: 50px;
+    margin-top: 60px;
+  }
+
+  .textSeciton {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .textSeciton h2 {
+    font-size: 28px;
+    line-height: normal;
+  }
+
+  .textSeciton p {
+    font-size: 16px;
+  }
+
+  .SpecialImg,
+  .productImage {
+    width: 350px;
+    height: 350px;
+  }
+
+  .speacialBtn {
+    width: 260px;
+    height: 50px;
+  }
+
+  .bottomRow {
+    justify-content: space-between;
+    width: 260px;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .SpecialImg,
+  .productImage {
+    width: 280px;
+    height: 280px;
+  }
+
+  .speacialBtn {
+    width: 220px;
+    height: 48px;
+    font-size: 14px;
+  }
+
+  .textSeciton h2 {
+    font-size: 24px;
+  }
+
+  .textSeciton p {
+    font-size: 14px;
+  }
+
+  .bottomRow {
+    width: 400px;
+  }
+}

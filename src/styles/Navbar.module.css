@@ -1,0 +1,255 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+    width: 1200px;
+    height: 60px;
+    background: linear-gradient(to right, rgba(156, 156, 156, 0.6) 16%, rgba(156, 156, 156, 0.6) 84%, rgba(156, 156, 156, 0.6) 100%);
+    position: sticky;
+    left: 15%;
+    top: 50px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    z-index: 1;
+}
+
+/* Hamburger Menu Button */
+.hamburgerBtn {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.hamburgerIcon {
+    width: 28px;
+    height: 28px;
+    color: #392b26;
+}
+
+.leftGroup {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    text-decoration: none;
+    color: black;
+    font-size: 35px;
+    font-weight: bold;
+    color: #392b26;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #392b26;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.cartBtn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #392b26;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.cartIcon {
+    width: 28px;
+    height: 28px;
+    color: black;
+}
+
+.cartCount {
+    font-size: 11px;
+    position: relative;
+    top: -6px;
+    right: 8px;
+    color: #c7c7c7;
+    background: red;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+/* Mobile Menu Styles */
+.mobileMenuOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 9999;
+}
+
+.mobileMenuOverlay.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.mobileMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100%;
+    background: white;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 10000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobileMenu.active {
+    transform: translateX(0);
+}
+
+.mobileMenuHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.mobileMenuHeader h3 {
+    margin: 0;
+    color: #392b26;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.closeBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #392b26;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.closeBtn:hover {
+    background: #f5f5f5;
+    border-radius: 50%;
+}
+
+.mobileMenuNav {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobileMenuNav a {
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #392b26;
+    font-weight: 500;
+    font-size: 16px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+.mobileMenuNav a:hover {
+    background-color: #f8f8f8;
+    color: #000;
+}
+
+.mobileMenuNav a:last-child {
+    border-bottom: none;
+}
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+    .navbar {
+        width: 95%;
+        max-width: 95%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 0 1rem;
+        justify-content: space-between;
+        top: 20px;
+        z-index: 1000;
+    }
+
+    /* Show hamburger button on mobile */
+    .hamburgerBtn {
+        display: flex;
+        order: 1;
+    }
+
+    /* Center the logo */
+    .leftGroup {
+        order: 2;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .logo a {
+        font-size: 28px;
+    }
+
+    /* Hide desktop menu */
+    .menu {
+        display: none;
+    }
+
+    /* Keep cart button on right */
+    .cartBtn {
+        order: 3;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .navbar {
+               height: 55px;
+        padding: 0 0.8rem;
+        top: 15px;
+        width: 90%;
+        left: 10px;
+    
+    }
+
+    .logo a {
+        font-size: 24px;
+    }
+
+    .hamburgerIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .cartIcon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .mobileMenu {
+        width: 250px;
+    }
+}

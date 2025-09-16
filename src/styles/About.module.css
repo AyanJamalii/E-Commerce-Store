@@ -1,0 +1,120 @@
+.aboutSection {
+  margin-top: 200px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 50rem;
+}
+
+.aboutBox {
+  background: #3a3a3a; 
+  transform: rotate(-4.46deg); 
+  width: 120%; 
+  margin-left: -10%; 
+  height: 570px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 90px;
+}
+
+.aboutContent {
+  max-width: 900px;
+  text-align: center;
+  color: white;
+  transform: rotate(1deg);
+}
+
+.subTitle {
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #dba54b;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #f6a623;
+  margin-bottom: 20px;
+}
+
+.desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ddd;
+  margin-bottom: 25px;
+}
+
+.learnMore {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ddd;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.learnMore:hover {
+  color: #BC5301;
+  border-bottom: 2px solid #BC5301;
+}
+
+.AboutAllContent {
+  transform: rotate(5deg);
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 768px) {
+  .aboutSection {
+    margin-top: 120px;
+    height: 400px; /* let it adjust naturally */
+  }
+
+  .aboutBox {
+    height: auto;
+    padding: 2rem 1rem;
+    margin-top: 50px;
+  }
+
+  .aboutContent {
+    max-width: 95%;
+  }
+
+  .subTitle {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .desc {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .learnMore {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 18px;
+  }
+
+  .desc {
+    font-size: 10px;
+        width: 386px;
+        position: relative;
+        right: 8px;
+  }
+
+  .learnMore {
+    font-size: 12px;
+  }
+}

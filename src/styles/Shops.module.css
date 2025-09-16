@@ -1,0 +1,123 @@
+.ShopsSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+  gap: 150px; /* reduced gap */
+  margin-bottom: 100px;
+}
+
+.mapBox {
+  width: 420px;  /* reduced from 500px */
+  height: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+}
+
+.textSide {
+  max-width: 380px;
+}
+
+.textSide h2 {
+  font-size: 32px;
+  font-weight: 800;
+  color: #7D340A;
+  margin-bottom: 20px;
+  line-height: 1.4;
+}
+
+.shopList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shopList li {
+  font-size: 18px;
+  color: #565656;
+  margin-bottom: 12px;
+}
+
+.mapBtn {
+  width: 100%; /* always responsive */
+  max-width: 380px; /* slightly smaller */
+  height: 55px; /* reduced height */
+  border: none;
+  border-radius: 20px;
+  background: #BC5301;
+  color: #FFF4C4;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 25px;
+  position: relative;
+}
+
+.mapBtn::after {
+  content: "➔";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-20deg);
+  font-size: 18px;
+  color: #FFF4C4;
+  transition: transform 0.3s ease;
+}
+
+.mapBtn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0px 10px 32px 0px rgba(125, 52, 10, 0.35);
+}
+
+.mapBtn:hover::after {
+  transform: translate(4px, -50%) rotate(-20deg);
+}
+
+/* 📱 Responsive styles */
+@media (max-width: 1024px) {
+  .ShopsSection {
+    gap: 70px;
+  }
+  .mapBox {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ShopsSection {
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+
+  .mapBox {
+    width: 100%;
+    max-width: 480px;
+    height: 280px;
+  }
+
+  .textSide {
+    text-align: center;
+    max-width: 90%;
+  }
+
+  .textSide h2 {
+    font-size: 24px;
+  }
+
+  .shopList li {
+    font-size: 15px;
+  }
+
+  .mapBtn {
+    width: 100%;
+    max-width: 280px; /* narrower for small screens */
+    margin: 20px auto 0;
+    display: block;
+    height: 50px;
+    font-size: 12px;
+  }
+}
