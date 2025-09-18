@@ -1,0 +1,168 @@
+.detailPage {
+  display: flex;
+  gap: 130px;
+  padding: 150px;
+  margin-left: 145px;
+  align-items: center;
+}
+
+.left img {
+  width: 400px;
+  border-radius: 10px;
+}
+
+.right {
+  flex: 1;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.colors {
+  margin: 20px 0;
+}
+.color {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.color.active {
+  border: 2px solid black;
+}
+
+.sizes {
+  margin: 20px 0;
+}
+.sizeBtn {
+  margin-right: 0px;
+  padding: 10px 20px;
+  border: 1px solid #444;
+  background: #fff;
+  cursor: pointer;
+  border-radius: 40px;
+  width: 50px;
+  height: 50px;
+  margin-left: 24px;
+}
+.sizeBtn.active {
+  background: black;
+  color: white;
+}
+
+.addBtn {
+  margin-top: 20px;
+  padding: 15px 30px;
+  background: #BC5301;
+  color: #FFF4C4;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* 📱 Responsive styles */
+@media (max-width: 1200px) {
+  .detailPage {
+    gap: 20px;
+    padding: 100px;
+    margin-left: 80px;
+  }
+
+  .left img {
+    width: 320px;
+  }
+}
+
+@media (max-width: 992px) {
+  .detailPage {
+    flex-direction: column;  /* image first */
+    padding: 60px 40px;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .left img {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto 30px;
+  }
+
+  .right {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .sizeBtn {
+    margin: 8px;
+    padding: 10px;
+  }
+
+  .addBtn {
+    width: 100%;
+    max-width: 320px;
+    margin: 25px auto 0;
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .detailPage {
+    padding: 40px 20px;
+  }
+
+  .left img {
+    max-width: 300;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+
+  .color {
+    width: 24px;
+    height: 24px;
+  }
+
+  .sizeBtn {
+    width: 45px;
+    height: 45px;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .addBtn {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+.detailPageWrapper {
+  position: relative;
+}
+
+/* Back button top-left */
+.backBtn {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.backBtn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+

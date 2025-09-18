@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import Navbar from "./Components/Navbar.jsx";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home.jsx";
+import ProductDetail from "./Pages/ProductDetail.jsx";
 import Men from "./Pages/Men";
 import Women from "./Pages/Women";
 import Junior from "./Pages/Junior.jsx";
@@ -26,6 +27,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetail />} />
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
         <Route path="/junior" element={<Junior />} />

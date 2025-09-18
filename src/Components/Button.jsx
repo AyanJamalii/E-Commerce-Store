@@ -6,7 +6,7 @@ import { ArrowRightAlt } from '@mui/icons-material';
 const Button = () => {
   return (
     <div className={styles.btnContainer}>
-      <Link to="/products" className={styles.viewProductBtn}>
+      <Link to="/men" className={styles.viewProductBtn}>
         View All <ArrowRightAlt className={styles.icon} />
       </Link>
     </div>

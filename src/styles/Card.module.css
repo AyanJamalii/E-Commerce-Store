@@ -99,9 +99,7 @@
   background: #f1f1f1;
 }
 
-/* RESPONSIVE DESIGN FOR MOBILE AND TABLET */
 
-/* Tablet (768px - 1024px) */
 @media screen and (min-width: 769px) and (max-width: 1024px) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
@@ -200,6 +198,7 @@
    width: 129%;
         max-width: 347px;
         height: 645px;
+        margin-left: -10px;
   }
 
   .cardBody {

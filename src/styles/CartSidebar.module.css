@@ -16,28 +16,25 @@
   pointer-events: all;
 }
 
-/* Sidebar - closed by translateX(100%) so it's completely off-screen to the right */
 .sidebar {
   position: fixed;
   top: -50px;
-  right: -354px;            /* your preferred exact alignment */
+  right: -354px;            
   width: 320px;
   height: 100vh;
   background: #fff;
   box-shadow: -4px 0 12px rgba(0,0,0,0.2);
-  transform: translateX(100%);   /* hidden offscreen */
-  transition: transform 0.3s ease; /* match JS timeout */
+  transform: translateX(100%);   
+  transition: transform 0.3s ease; 
   z-index: 50;
   display: flex;
   flex-direction: column;
 }
 
-/* Show it by cancelling the translate */
 .sidebar.open {
-  transform: translateX(0); /* slides into the exact right position you set */
+  transform: translateX(0);
 }
 
-/* Header */
 .header {
   display: flex;
   justify-content: space-between;
@@ -52,7 +49,6 @@
   cursor: pointer;
 }
 
-/* Items */
 .items {
   flex: 1;
   overflow-y: auto;

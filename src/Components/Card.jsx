@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useCart } from "../Context/CartContext";
+import { useNavigate } from "react-router-dom";
 import styles from "../styles/Card.module.css";
 
 const Card = ({ products = [], limit }) => {
   const [selectedColors, setSelectedColors] = useState({});
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
@@ -13,7 +15,6 @@ const Card = ({ products = [], limit }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // 🔹 Apply product limit logic (for Home only)
   let displayCards = products;
   if (limit) {
     displayCards = isMobile ? products.slice(0, 3) : products.slice(0, limit);
@@ -34,19 +35,25 @@ const Card = ({ products = [], limit }) => {
         const currentImg = card.variants[selectedColor];
 
         return (
-          <div key={card.id} className={styles.card}>
+          <div
+            key={card.id}
+            className={styles.card}
+            onClick={() => navigate(`/product/${card.id}`)}
+            style={{ cursor: "pointer" }}
+          >
             <div className={styles.cardImg}>
               <img src={currentImg} alt={card.title} />
               <button
                 className={styles.addBtn}
-                onClick={() =>
+                onClick={(e) => {
+                  e.stopPropagation();
                   addToCart({
                     id: card.id,
                     name: card.title,
                     price: card.price,
                     image: currentImg,
-                  })
-                }
+                  });
+                }}
               >
                 +
               </button>
@@ -65,7 +72,10 @@ const Card = ({ products = [], limit }) => {
                             ? "2px solid black"
                             : "1px solid #ddd",
                       }}
-                      onClick={() => handleColorClick(card.id, c)}
+                      onClick={(e) => {
+                        e.stopPropagation(); 
+                        handleColorClick(card.id, c);
+                      }}
                     ></span>
                   ))}
                 </div>
