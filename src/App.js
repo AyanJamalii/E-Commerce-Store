@@ -11,6 +11,7 @@ import Men from "./Pages/Men";
 import Women from "./Pages/Women";
 import Junior from "./Pages/Junior.jsx";
 import { CartProvider } from "./Context/CartContext.js";
+import ScrollToTop from "./Components/ScrollToTop.jsx";
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,7 @@ function App() {
   return (
     <CartProvider>
     <Router>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
