@@ -14,7 +14,7 @@ import Shops from "../Sections/Shops";
 const slides = [
   { id: 1, type: "video", src: "/images/main.mp4" },
   { id: 2, type: "image", src: "/images/mainPic1.jpg" },
-  { id: 3, type: "image", src: "/images/MainPic2.jpg" },
+  { id: 3, type: "image", src: "/images/mainPic2.jpg" },
 ];
 
 const Home = () => {
