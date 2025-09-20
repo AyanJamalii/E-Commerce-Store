@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "../styles/Junior.module.css";
 import Card from "../Components/Card";
 import { juniorProducts } from "../Data/Products";
+import SortIcon from "@mui/icons-material/Sort"; // import icon
 
 const Junior = () => {
   const [sortOption, setSortOption] = useState("");
@@ -26,8 +27,12 @@ const Junior = () => {
       </div>
 
       <div className={styles.sortBox}>
-        <label>Sort by:</label>
-        <select value={sortOption} onChange={handleSortChange}>
+        <SortIcon className={styles.sortIcon} />
+        <select
+          value={sortOption}
+          onChange={handleSortChange}
+          className={styles.sortSelect}
+        >
           <option value="">Default</option>
           <option value="lowToHigh">Price: Low to High</option>
           <option value="highToLow">Price: High to Low</option>

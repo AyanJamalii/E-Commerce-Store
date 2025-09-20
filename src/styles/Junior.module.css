@@ -32,49 +32,45 @@
 }
 .sortBox {
   display: flex;
-  justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
+  margin-bottom: 20px;
+
   width: 90%;
   max-width: 1800px;
-  margin-bottom: 20px;
+  justify-content: flex-end; /* right corner */
 }
 
-.sortBox label {
+.sortIcon {
+  font-size: 18px;
+  color: #444;
+}
+
+.sortText {
   font-size: 14px;
   font-weight: 500;
-  color: #333;
+  color: #444;
 }
 
-.sortBox select {
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background: #fff;
+.sortSelect {
+  appearance: none;
+  border: none;
+  background: transparent;
   font-size: 14px;
   cursor: pointer;
+  color: #444;
 }
 
-.sortBox select:focus {
+.sortSelect:focus {
   outline: none;
-  border-color: #7d340a;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-  .sortBox {
-    justify-content: center;
-    width: 100%;
-  }
-
-  .sortBox label {
+  .sortText {
     font-size: 12px;
   }
-
-  .sortBox select {
+  .sortSelect {
     font-size: 12px;
-    padding: 6px 10px;
-  }
-  .decorLine{
-    width: 400px;
   }
 }

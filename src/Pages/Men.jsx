@@ -28,7 +28,6 @@ const Men = () => {
 
       <div className={styles.sortBox}>
         <SortIcon className={styles.sortIcon} />
-        {/* <span className={styles.sortText}>Sort</span> */}
         <select
           value={sortOption}
           onChange={handleSortChange}
