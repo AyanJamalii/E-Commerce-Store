@@ -12,9 +12,9 @@ import Testimonials from "../Sections/Testimonials";
 import Shops from "../Sections/Shops";
 
 const slides = [
-  { id: 1, type: "video", src: "/public/Images/main.mp4" },
-  { id: 2, type: "image", src: "/public/Images/mainPic1.jpg" },
-  { id: 3, type: "image", src: "/public/Images/MainPic2.jpg" },
+  { id: 1, type: "video", src: "/images/main.mp4" },
+  { id: 2, type: "image", src: "/images/mainPic1.jpg" },
+  { id: 3, type: "image", src: "/images/MainPic2.jpg" },
 ];
 
 const Home = () => {
@@ -30,7 +30,7 @@ const Home = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 12000);
   };
 
   const resetAutoplay = () => {
