@@ -12,7 +12,6 @@ const Checkout = () => {
   const [orderPlaced, setOrderPlaced] = useState(false);
 
 const handlePlaceOrder = () => {
-  // Basic form validation (you can extend as needed)
   if (!form.email || !form.phone || !form.address) {
     alert("Please fill all required fields");
     return;
@@ -20,10 +19,9 @@ const handlePlaceOrder = () => {
 
   setOrderPlaced(true);
 
-  // Auto-hide after 3 seconds
   setTimeout(() => {
     setOrderPlaced(false);
-  }, 3000);
+  }, 4000);
 };
 
 
@@ -33,7 +31,6 @@ const handlePlaceOrder = () => {
     }
   }, [cartItems, navigate]);
 
-  // Calculate totals
   const subTotal = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -60,9 +57,7 @@ const handlePlaceOrder = () => {
   return (
     <div className={styles.checkoutWrapper}>
       <div className={styles.checkoutContainer}>
-        {/* Left Section */}
         <div className={styles.left}>
-          {/* 1. Account Details */}
           <div className={styles.section}>
             <h3>1. Account Details</h3>
             <div className={styles.grid2}>
@@ -89,7 +84,6 @@ const handlePlaceOrder = () => {
             </div>
           </div>
 
-          {/* 2. Delivery Address */}
           <div className={styles.section}>
             <h3>2. Delivery Address</h3>
             <input
@@ -101,8 +95,6 @@ const handlePlaceOrder = () => {
               className={styles.fullInput}
             />
           </div>
-
-          {/* 3. Payment Details */}
           <div className={styles.section}>
             <h3>3. Payment Details</h3>
             <div className={styles.paymentTabs}>
@@ -143,9 +135,9 @@ const handlePlaceOrder = () => {
                     name="expiry"
                     value={form.expiry}
                     onChange={(e) => {
-                      let value = e.target.value.replace(/[^0-9/]/g, ""); // only numbers + "/"
+                      let value = e.target.value.replace(/[^0-9/]/g, ""); 
                       if (value.length === 2 && !value.includes("/")) {
-                        value = value + "/"; // auto insert "/"
+                        value = value + "/"; 
                       }
                       if (value.length <= 5) {
                         setForm({ ...form, expiry: value });
@@ -193,12 +185,10 @@ const handlePlaceOrder = () => {
           </div>
         </div>
 
-        {/* Right Section */}
         <div className={styles.right}>
           <div className={styles.orderSummary}>
             <h3>Order Summary</h3>
 
-            {/* Cart Items */}
             {cartItems.map((item) => (
               <div key={item.id} className={styles.productRow}>
                 <img src={item.image} alt={item.name} />
@@ -252,13 +242,11 @@ const handlePlaceOrder = () => {
               <span className={styles.freeText}>Free</span>
             </div>
 
-            {/* Total */}
             <div className={`${styles.priceRow} ${styles.totalRow}`}>
               <span>Total</span>
               <span>${total.toFixed(2)}</span>
             </div>
 
-            {/* Notes */}
             <div className={styles.noteRow}>
               <p>
                 Tax Included. <span className={styles.underline}>Shipping</span>{" "}
@@ -275,7 +263,7 @@ const handlePlaceOrder = () => {
       </div>
       {orderPlaced && (
   <div className={styles.successAlert}>
-     Order placed successfully!🎉 <br /> ( mile ga nhi bas kabhi )
+     Order placed successfully! ✅ <br /> ( mile ga nhi bas kabhi )
   </div>
 )}
     </div>
