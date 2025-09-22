@@ -4,9 +4,28 @@ import { useNavigate } from "react-router-dom";
 import styles from "../styles/Checkout.module.css";
 
 const Checkout = () => {
-  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
+  const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } =
+    useCart();
   const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState("card");
+
+  const [orderPlaced, setOrderPlaced] = useState(false);
+
+const handlePlaceOrder = () => {
+  // Basic form validation (you can extend as needed)
+  if (!form.email || !form.phone || !form.address) {
+    alert("Please fill all required fields");
+    return;
+  }
+
+  setOrderPlaced(true);
+
+  // Auto-hide after 3 seconds
+  setTimeout(() => {
+    setOrderPlaced(false);
+  }, 3000);
+};
+
 
   useEffect(() => {
     if (cartItems.length === 0) {
@@ -15,9 +34,12 @@ const Checkout = () => {
   }, [cartItems, navigate]);
 
   // Calculate totals
-  const subTotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const discount = subTotal * 0.1; 
-  const shipping = 0; 
+  const subTotal = cartItems.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+  const discount = subTotal * 0.1;
+  const shipping = 0;
   const total = subTotal - discount + shipping;
 
   const [form, setForm] = useState({
@@ -28,7 +50,7 @@ const Checkout = () => {
     expiry: "",
     cvv: "",
     postal: "",
-    upiId: ""
+    upiId: "",
   });
 
   const handleChange = (e) => {
@@ -85,13 +107,17 @@ const Checkout = () => {
             <h3>3. Payment Details</h3>
             <div className={styles.paymentTabs}>
               <button
-                className={`${styles.tabBtn} ${paymentMethod === "card" ? styles.active : ""}`}
+                className={`${styles.tabBtn} ${
+                  paymentMethod === "card" ? styles.active : ""
+                }`}
                 onClick={() => setPaymentMethod("card")}
               >
                 Debit/Credit Card
               </button>
               <button
-                className={`${styles.tabBtn} ${paymentMethod === "upi" ? styles.active : ""}`}
+                className={`${styles.tabBtn} ${
+                  paymentMethod === "upi" ? styles.active : ""
+                }`}
                 onClick={() => setPaymentMethod("upi")}
               >
                 UPI
@@ -110,25 +136,25 @@ const Checkout = () => {
                     placeholder="Enter name"
                   />
                 </div>
-               <div className={styles.inputGroup}>
-  <label>Expiry Date</label>
-  <input
-    type="text"
-    name="expiry"
-    value={form.expiry}
-    onChange={(e) => {
-      let value = e.target.value.replace(/[^0-9/]/g, ""); // only numbers + "/"
-      if (value.length === 2 && !value.includes("/")) {
-        value = value + "/"; // auto insert "/"
-      }
-      if (value.length <= 5) {
-        setForm({ ...form, expiry: value });
-      }
-    }}
-    placeholder="MM/YY"
-    maxLength={5}
-  />
-</div>
+                <div className={styles.inputGroup}>
+                  <label>Expiry Date</label>
+                  <input
+                    type="text"
+                    name="expiry"
+                    value={form.expiry}
+                    onChange={(e) => {
+                      let value = e.target.value.replace(/[^0-9/]/g, ""); // only numbers + "/"
+                      if (value.length === 2 && !value.includes("/")) {
+                        value = value + "/"; // auto insert "/"
+                      }
+                      if (value.length <= 5) {
+                        setForm({ ...form, expiry: value });
+                      }
+                    }}
+                    placeholder="MM/YY"
+                    maxLength={5}
+                  />
+                </div>
                 <div className={styles.inputGroup}>
                   <label>Security Code</label>
                   <input
@@ -178,11 +204,23 @@ const Checkout = () => {
                 <img src={item.image} alt={item.name} />
                 <div className={styles.productInfo}>
                   <p className={styles.productName}>{item.name}</p>
-                  <p className={styles.productDetails}>${item.price} × {item.quantity}</p>
+                  <p className={styles.productDetails}>
+                    ${item.price} × {item.quantity}
+                  </p>
                   <div className={styles.cartActions}>
-                    <button className={styles.cartBtn} onClick={() => decreaseQuantity(item.id)}>-</button>
+                    <button
+                      className={styles.cartBtn}
+                      onClick={() => decreaseQuantity(item.id)}
+                    >
+                      -
+                    </button>
                     <span>{item.quantity}</span>
-                    <button className={styles.cartBtn} onClick={() => increaseQuantity(item.id)}>+</button>
+                    <button
+                      className={styles.cartBtn}
+                      onClick={() => increaseQuantity(item.id)}
+                    >
+                      +
+                    </button>
                     <button
                       className={styles.removeBtn}
                       onClick={() => removeFromCart(item.id)}
@@ -191,7 +229,9 @@ const Checkout = () => {
                     </button>
                   </div>
                 </div>
-                <div className={styles.productPrice}>${item.price * item.quantity}</div>
+                <div className={styles.productPrice}>
+                  ${item.price * item.quantity}
+                </div>
               </div>
             ))}
 
@@ -221,18 +261,23 @@ const Checkout = () => {
             {/* Notes */}
             <div className={styles.noteRow}>
               <p>
-                Tax Included. <span className={styles.underline}>Shipping</span> Calculated At Checkout.
+                Tax Included. <span className={styles.underline}>Shipping</span>{" "}
+                Calculated At Checkout.
               </p>
               <p>Estimated Delivery By 25 April, 2022</p>
             </div>
 
-            {/* Place Order Btn */}
-            <button className={styles.placeOrderBtn}>
-              Place Order
-            </button>
+            <button className={styles.placeOrderBtn} onClick={handlePlaceOrder}>
+  Place Order
+</button>
           </div>
         </div>
       </div>
+      {orderPlaced && (
+  <div className={styles.successAlert}>
+     Order placed successfully!🎉 <br /> ( mile ga nhi bas kabhi )
+  </div>
+)}
     </div>
   );
 };

@@ -265,3 +265,30 @@
     grid-template-columns: 1fr;
   }
 }
+.successAlert {
+  position: fixed;
+  top: -80px; /* start hidden */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4caf50;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  animation: slideDown 0.5s ease forwards;
+  z-index: 9999;
+  text-align: center;
+}
+
+@keyframes slideDown {
+  from {
+    top: -80px;
+    opacity: 0;
+  }
+  to {
+    top: 20px;
+    opacity: 1;
+  }
+}
