@@ -12,6 +12,7 @@ import Women from "./Pages/Women";
 import Junior from "./Pages/Junior.jsx";
 import { CartProvider } from "./Context/CartContext.js";
 import ScrollToTop from "./Components/ScrollToTop.jsx";
+import Checkout from "./Pages/Checkout.jsx";
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/men" element={<Men />} />
         <Route path="/women" element={<Women />} />
         <Route path="/junior" element={<Junior />} />
+        <Route path="/checkout" element={<Checkout />} />   
       </Routes>
       <Footer />
     </Router>

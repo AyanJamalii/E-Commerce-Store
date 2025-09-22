@@ -1,10 +1,12 @@
 import React from "react";
 import { useCart } from "../Context/CartContext";
+import { useNavigate } from "react-router-dom";  // ✅ import navigation
 import styles from "../styles/CartSidebar.module.css";
 
 const CartSidebar = ({ isOpen, onClose }) => {
   const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart } =
     useCart();
+  const navigate = useNavigate(); // ✅ hook
 
   if (!isOpen) return null;
 
@@ -12,6 +14,11 @@ const CartSidebar = ({ isOpen, onClose }) => {
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  const handleCheckout = () => {
+    onClose();            // close sidebar
+    navigate("/checkout"); // go to checkout page
+  };
 
   return (
     <>
@@ -62,7 +69,9 @@ const CartSidebar = ({ isOpen, onClose }) => {
             <span>Total:</span>
             <span>${total}</span>
           </div>
-          <button className={styles.checkoutBtn}>Checkout</button>
+          <button className={styles.checkoutBtn} onClick={handleCheckout}>
+            Checkout
+          </button>
         </div>
       </aside>
     </>
