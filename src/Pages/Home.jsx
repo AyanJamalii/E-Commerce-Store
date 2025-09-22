@@ -30,7 +30,7 @@ const Home = () => {
     clearInterval(intervalRef.current);
     intervalRef.current = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 12000);
+    }, 5000);
   };
 
   const resetAutoplay = () => {
