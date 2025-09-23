@@ -158,6 +158,7 @@ const ProductDetail = () => {
               addToCart({
                 ...product,
                 color: selectedColor,
+                name: product.title,
                 size: selectedSize,
                 image: product.variants[selectedColor],
               })
