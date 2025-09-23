@@ -73,4 +73,8 @@
   .sortSelect {
     font-size: 12px;
   }
+  .decorLine{
+    width: 370px;
+    height: 2px;
+  }
 }

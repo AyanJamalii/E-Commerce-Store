@@ -65,12 +65,15 @@
   outline: none;
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .sortText {
     font-size: 12px;
   }
   .sortSelect {
     font-size: 12px;
+  }
+   .decorLine{
+    width: 370px;
+    height: 2px;
   }
 }

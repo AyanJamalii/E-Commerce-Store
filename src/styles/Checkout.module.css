@@ -1,5 +1,4 @@
 .checkoutWrapper {
-  /* background: #f8f8f8; */
   min-height: 100vh;
   padding: 1rem 0;
 }
@@ -212,7 +211,6 @@
   background: #e60000;
 }
 
-/* ✅ Responsive */
 @media (max-width: 992px) {
   .checkoutContainer {
     flex-direction: column;
@@ -252,14 +250,12 @@
   margin-top: 1rem;
 }
 
-/* Tablets */
 @media (max-width: 992px) {
   .grid4 {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-/* Mobiles */
 @media (max-width: 600px) {
   .grid4 {
     grid-template-columns: 1fr;
@@ -267,7 +263,7 @@
 }
 .successAlert {
   position: fixed;
-  top: -80px; /* start hidden */
+  top: -80px; 
   left: 50%;
   transform: translateX(-50%);
   background: #057a0b;
