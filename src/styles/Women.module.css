@@ -31,14 +31,14 @@
   border-radius: 50px;
 }
 .sortBox {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 20px;
-
-  width: 90%;
-  max-width: 1800px;
-  justify-content: flex-end; /* right corner */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 18px;
+    width: 108%;
+    max-width: 1800px;
+    justify-content: flex-end;
+    margin-top: -20px; /* pushes it to the right corner */
 }
 
 .sortIcon {
